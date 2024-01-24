@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-5.1.1-dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <style>
+      @media (max-width: 576px) {
+        .container-right {
+          margin-left: 48.5px; /* 移除左側邊距 */
+          display: flex;
+          flex-wrap: wrap; /* 新增這一行，啟用自動換行 */
+          flex-direction: column;
+        }
+
+        .container-right .row {
+          width: 100%; /* 讓每個元素佔滿整個寬度 */
+          flex-wrap: wrap; /* 新增這一行，啟用自動換行 */
+          flex-direction: column;
+        }
+
+        .container-left {
+          overflow: auto;
+        }
+
+        .navbar-toggler {
+          color: #000; /* 按鈕文字顏色 */
+        }
+
+        #kai {
+          flex-direction: row;
+        }
+
+        .sidemenu {
+          display: none;
+        }
+
+        .side-content .sidelink ul {
+          display: inline-block;
+        }
+
+        .top-bar {
+          flex-direction: column; /* 上方區域 flex 方向為垂直排列 */
+        }
+
+        .icons {
+          margin-top: 10px; /* 調整圖標上方的間距 */
+        }
+
+        .row {
+          margin-right: 0; /* 移除行右側的間距 */
+          margin-left: 0; /* 移除行左側的間距 */
+        }
+
+        .box {
+          margin-bottom: 20px; /* 調整盒子之間的間距 */
+        }
+        .box img {
+          object-fit: fill;
+          width: 100%;
+          height: 400px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="welcome-container" id="welcomeContainer">
+      <div class="welcome-text">Welcome!</div>
+    </div>
+    <div class="container-all main-content">
+      <nav
+        class="container-left navbar navbar-expand-sm"
+        style="flex-direction: row; align-items: start"
+      >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarCollapse"
+        >
+          <i class="fa-solid fa-toggle-off"></i>
+        </button>
+        <div
+          class="collapse navbar-collapse"
+          id="navbarCollapse"
+          style="flex-direction: row; align-items: start"
+        >
+          <ul class="sidemenu nav flex-column">
+            <li class="active">
+              <button type="button" id="collapse" class="collapse-btn">
+                <i class="fa-solid fa-toggle-off"></i>
+              </button>
+            </li>
+            <li class="active">
+              <a href="#content1" data-bs-toggle="collapse" id="myCollapse1">
+                <i class="fa-solid fa-tv"></i>
+              </a>
+            </li>
+            <li class="active">
+              <a href="#content2" data-bs-toggle="collapse" id="myCollapse2">
+                <i class="fa-solid fa-paste"></i>
+              </a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-floppy-disk"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-envelope"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-layer-group"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-paste"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-lightbulb"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-user-tie"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-file-import"></i></a>
+            </li>
+            <li class="active">
+              <a href="#"><i class="fa-solid fa-video-slash"></i></a>
+            </li>
+          </ul>
+          <div class="side-content" id="side-content">
+            <div class="sidelink">
+              <ul id="content1" class="collapse show sublist list-unstyled">
+                <li class="nav-item">
+                  <label>Navigation</label>
+                </li>
+                <li class="nav-bar">
+                  <a href="#sublist" data-bs-toggle="collapse" id="dropdown"
+                    >Dashboard <i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist" class="collapse sublist">
+                  <li><a href="#">Default</a></li>
+                  <li><a href="#">Ecommerce</a></li>
+                  <li><a href="#">CRM</a></li>
+                </ul>
+                <li class="nav-bar">
+                  <a href="#sublist2" data-bs-toggle="collapse" id="dropdown"
+                    >Page layouts <i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist2" class="collapse sublist">
+                  <li>
+                    <a href="#list" data-bs-toggle="collapse" id="dropdown"
+                      >Vertical <i class="fa-solid fa-chevron-right"></i
+                    ></a>
+                  </li>
+                  <ul id="list" class="collapse sublist">
+                    <li><a href="#">Static</a></li>
+                    <li><a href="#">Fixed</a></li>
+                    <li><a href="#">Navbar fixed</a></li>
+                  </ul>
+                  <li><a href="#">Horizontal</a></li>
+                  <li><a href="#">Box layout</a></li>
+                </ul>
+                <li class="nav-bar">
+                  <a href="#sublist3" data-bs-toggle="collapse" id="dropdown"
+                    >Widget <i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist3" class="collapse sublist">
+                  <li><a href="#">Statistic</a></li>
+                  <li><a href="#">Data</a></li>
+                  <li><a href="#">Table</a></li>
+                </ul>
+              </ul>
+              <ul id="content2" class="collapse sublist list-unstyled">
+                <li class="nav-item">
+                  <label>UI Element</label>
+                </li>
+                <li class="nav-bar">
+                  <a href="#sublist4" data-bs-toggle="collapse" id="dropdown"
+                    >Basic <i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist4" class="collapse sublist">
+                  <li><a href="#">Alert</a></li>
+                  <li><a href="#">Button</a></li>
+                  <li><a href="#">Badges</a></li>
+                </ul>
+                <li class="nav-bar">
+                  <a href="#sublist5" data-bs-toggle="collapse" id="dropdown"
+                    >Advance <i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist5" class="collapse sublist">
+                  <li><a href="#">Sweet alert</a></li>
+                  <li><a href="#">Datepicker</a></li>
+                  <li><a href="#">Gridstack</a></li>
+                </ul>
+                <li class="nav-bar">
+                  <a href="#sublist6" data-bs-toggle="collapse" id="dropdown"
+                    >Extra<i class="fa-solid fa-chevron-right"></i
+                  ></a>
+                </li>
+                <ul id="sublist6" class="collapse sublist">
+                  <li><a href="#">Session timeout</a></li>
+                  <li><a href="#">Session idle</a></li>
+                  <li><a href="#">Offline</a></li>
+                </ul>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container-right">
+        <div id="particles-js"></div>
+        <!-- stats - count particles -->
+        <div class="count-particles">
+          <span class="js-count-particles"></span>
+        </div>
+        <div class="container-fluid">
+          <!-- 上方區域 -->
+          <div class="top-bar row">
+            <div class="col-lg-6">
+              <div class="search-box">
+                <input type="text" placeholder="Search" />
+                <button type="button"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="icons">
+                <i class="fas fa-cog"></i>
+                <i class="fas fa-envelope"></i>
+                <i class="fas fa-bell"></i>
+              </div>
+            </div>
+          </div>
+          <div class="row flex-sm-wrap">
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="bigbox box">
+                <div
+                  style="
+                    --swiper-navigation-color: #fff;
+                    --swiper-pagination-color: #fff;
+                  "
+                  class="swiper mySwiper2"
+                >
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-1.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-3.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-4.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-5.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-6.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-7.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-8.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-9.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-10.jpg"
+                      />
+                    </div>
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+                <div thumbsSlider="" class="swiper mySwiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-1.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-2.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-3.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-4.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-5.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-6.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-7.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-8.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-9.jpg"
+                      />
+                    </div>
+                    <div class="swiper-slide">
+                      <img
+                        src="https://swiperjs.com/demos/images/nature-10.jpg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+              <div class="box1 box"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box1 box"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="box2 box"></div>
+            </div>
+            <div class="col-lg-7">
+              <div class="box2 box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->
+    <!-- <script src="./parallax-master/src/parallax.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.38.3/css-doodle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="./gsap-public/src/gsap.js"></script> -->
+    <script src="./gsap-public/src/ScrollTrigger.js"></script>
+    <script src="https://unpkg.com/gsap@3.9.2"></script>
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> -->
+    <!-- stats.js lib -->
+    <!-- <script src="http://threejs.org/examples/js/libs/stats.min.js"></script> -->
+    <script src="./script.js"></script>
+  </body>
+</html>
